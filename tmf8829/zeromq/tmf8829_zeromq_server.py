@@ -271,7 +271,7 @@ if __name__ == "__main__":
         "measure_cfg": {}
     }
 
-    CONFIG_FILE = "./cfg_server.json"
+    CONFIG_FILE = "cfg_server.json"
     exe_hex = False
     # exe or script
     if getattr(sys, 'frozen', False): 
@@ -282,7 +282,7 @@ if __name__ == "__main__":
 
     script_location = os.path.dirname(script_location) 
 
-    cfg_dict = Tmf8829Logger.readCfgFile(filePathName=script_location + CONFIG_FILE,in_config=default_cfg)
+    cfg_dict = Tmf8829Logger.readCfgFile(filePathName=os.path.join(script_location, CONFIG_FILE), in_config=default_cfg)
 
     logging.basicConfig(level=logging.DEBUG,format='%(levelname)s %(name)s.%(funcName)s:%(lineno)d %(message)s')
     

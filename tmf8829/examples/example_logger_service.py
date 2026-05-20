@@ -43,7 +43,7 @@ if __name__ == "__main__":
     #------------------------------------------------------------
     print("--- Read json file --- ")
 
-    cfgFile  = os.path.dirname(__file__) + "\\cfg.json"
+    cfgFile = os.path.normpath(os.path.join(os.path.dirname(__file__), 'cfg.json'))
     cfg = logger.readCfgFile(cfgFile, default_logger_cfg)
 
     #------------------------------------------------------------

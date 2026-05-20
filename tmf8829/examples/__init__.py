@@ -16,4 +16,4 @@ TOF_PYTHON_ROOT_DIR = os.path.normpath(os.path.dirname(__file__) + "/..")
 if TOF_PYTHON_ROOT_DIR not in sys.path:
     sys.path.append(TOF_PYTHON_ROOT_DIR)
 
-HEX_FILE = os.path.dirname(__file__) + "\\..\\hex\\tmf8829_application.hex"
+HEX_FILE = os.path.normpath(os.path.join(os.path.dirname(__file__), '..', 'hex', 'tmf8829_application.hex'))

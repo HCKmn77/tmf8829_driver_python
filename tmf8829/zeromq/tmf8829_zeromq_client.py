@@ -81,6 +81,23 @@ class ZeroMqClient:
         self._result_socket.disconnect(TMF8829_ZEROMQ_RESULT_LINUX_SERVER_ADDR)
         logger.info("Disconnect from linux server")
 
+    def connect_host(self, host: str, cmd_port: int = 5557, data_port: int = 5558):
+        """Connect to a specific host address (any remote host)."""
+        cmd_addr = f'tcp://{host}:{cmd_port}'
+        data_addr = f'tcp://{host}:{data_port}'
+        self._cmd_socket.connect(cmd_addr)
+        self._result_socket.connect(data_addr)
+        self._result_socket.setsockopt(zmq.SUBSCRIBE, b'')
+        logger.info(f"Connect to host {host}")
+
+    def disconnect_host(self, host: str, cmd_port: int = 5557, data_port: int = 5558):
+        """Disconnect from a specific host address."""
+        cmd_addr = f'tcp://{host}:{cmd_port}'
+        data_addr = f'tcp://{host}:{data_port}'
+        self._cmd_socket.disconnect(cmd_addr)
+        self._result_socket.disconnect(data_addr)
+        logger.info(f"Disconnect from host {host}")
+
     def send_request(
             self,
             request: Tmf8829zeroMQRequestMessage,

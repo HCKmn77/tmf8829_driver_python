@@ -7,7 +7,12 @@ Python version 3.10.11 or higher is required.
 Recommendation is to set-up a virtual environment. Open your favourite Windows PowerShell, VisualStudio Code etc.
 To install a virtual environment named env, and use it:   
 python -m venv env    
+
+Activate the virtual environment (Windows):
 ./env/Scripts/Activate.ps1    
+
+Activate the virtual environment (Linux):
+source env/bin/activate
 
 ## Requirements
 
